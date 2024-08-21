@@ -13,46 +13,6 @@ exports.registerUser = asyncHandler(async (req, res) => {
     await User.create({ ...req.body, password: hashPass })
     res.status(200).json({ message: "user Register sccess" })
 })
-// exports.loginuser = asyncHandler(async (req, res) => {
-//     const { email, password } = req.body
-//     const result = await User.findOne({ email })
-//     if (!result) {
-//         return res.status(400).json({ message: "Email not found" })
-//     }
-//     const verify = await bcrypt.compare(password, result.password)
-//     if (!verify) {
-//         return res.status(400).json({ message: "password did'nt match" })
-//     }
-//     const token = await jwt.sign({ userId: result._id }, process.env.PORT, { expiresIn: "2h" })
-//     res.cookie("auth", token, { maxAge: 60 * 60 * 15 })
-//     res.status(200).json({ message: "User Register sucess", result })
-// })
-
-// exports.loginuser = asyncHandler(async (req, res) => {
-
-//     const { email, password } = req.body
-//     // email validation cheack
-//     const result = await User.findOne({ email })
-//     if (!result) {
-//         return res.status(401).json({ message: "invalid email" })
-//     }
-//     // password validation cheack
-//     const verify = await bcrypt.compare(password, result.password)
-//     if (!verify) {
-//         return res.status(401).json({ message: "invalid password" })
-//     }
-
-//     //login
-//     //TOKEN
-//     const token = jwt.sign({ userID: result._id }, process.env.JWT_KEY, { expiresIn: "1h" })
-
-//     // send via cookie
-//     res.cookie("auth", token, { maxAge: 60 * 60 * 15 })
-//     res.status(200).json({
-//         message: "user login success",
-//         result: { name: result.name, _id: result._id }
-//     })
-// })
 
 
 
