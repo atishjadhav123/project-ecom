@@ -7,6 +7,7 @@ router
 
     .get("/user", authController.getAlluser)
     .post("/register", authController.registerUser)
+    .post("/mobile-register", authController.registerUser)
     .post("/register-seller", authController.registerSeller)
     .post("/login", authController.loginuser)
     .post("/logout", authController.logoutuser)
